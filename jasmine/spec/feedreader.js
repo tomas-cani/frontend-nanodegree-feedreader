@@ -30,14 +30,14 @@ $(function() {
       allFeeds.forEach((feed) => {
         expect(feed.url).toBeDefined();
         expect(feed.url).toBeTruthy();
-      })
+      });
     });
 
     it('has a name property', function() {
       allFeeds.forEach(function(feed) {
         expect(feed.name).toBeDefined();
         expect(feed.name).toBeTruthy();
-      })
+      });
     });
   });
 
@@ -58,7 +58,7 @@ $(function() {
   describe('Initial Entries', function(done) {
     beforeEach(function(done) {
       loadFeed(0, done);
-    })
+    });
 
     it('contains at least a single entry', function() {
       expect($('.feed .entry').length >= 1).toBe(true);
@@ -68,7 +68,7 @@ $(function() {
   describe('New Feed Selection', function() {
     beforeEach(function(done) {
      loadFeed(0, done);
-    })
+   });
 
     it('should change content', function() {
      expect($('div.feed').length).toBe(1);
