@@ -34,7 +34,7 @@ $(function() {
     });
 
     it('has a name property', function() {
-      allFeeds.forEach(function(feed) {
+      allFeeds.forEach((feed) => {
         expect(feed.name).toBeDefined();
         expect(feed.name).toBeTruthy();
       });
@@ -66,12 +66,23 @@ $(function() {
   });
 
   describe('New Feed Selection', function() {
+    let feeds1;
+    let feeds2;
+
     beforeEach(function(done) {
-     loadFeed(0, done);
+     loadFeed(0, function() {
+       feeds1 = $('.feed .entry-link');
+       loadFeed(1, function() {
+         feeds2 = $('.feed .entry-link');
+         done();
+       });
+     });
    });
 
     it('should change content', function() {
-     expect($('div.feed').length).toBe(1);
+      feeds1.each(function(index) {
+        expect(this.toString()).not.toEqual(feeds2[index].toString());
+      })
     });
   });
 
