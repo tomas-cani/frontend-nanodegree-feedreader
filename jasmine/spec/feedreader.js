@@ -82,7 +82,7 @@ $(function() {
     it('should change content', function() {
       feeds1.each(function(index) {
         expect(this.toString()).not.toEqual(feeds2[index].toString());
-      })
+      });
     });
   });
 
